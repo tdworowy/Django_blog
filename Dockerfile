@@ -9,4 +9,4 @@ RUN pip install setuptools
 RUN pip install Django
 RUN pip install Django-taggit
 RUN pip install haystack
-RUN git clone http://github.com/tdworowy/Django_test.git
+RUN git clone http://github.com/tdworowy/Django_blog.git
