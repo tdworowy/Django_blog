@@ -1,5 +1,5 @@
 # Dockerfile
-
+#TODO
 # FROM directive instructing base image to build upon
 FROM python:3.6-jessie
 ENV PYTHONPATH $PWD/Django_blog
