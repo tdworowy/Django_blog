@@ -11,6 +11,6 @@ RUN pip install Django
 RUN pip install Django-taggit
 RUN pip install haystack
 RUN git clone http://github.com/tdworowy/Django_blog.git
-CMD ["python", "/Django_blog/TestFile.py]
-#CMD ["python", "/Django_blog/Example/Example1/blog/Utils/runMigration.py"]
-#CMD ["python", "/Django_blog/Example/Example1/blog/Utils/startServer.py"]
+CMD ["python", "-u","/Django_blog/TestFile.py]
+#CMD ["python","-u", "/Django_blog/Example/Example1/blog/Utils/runMigration.py"]
+#CMD ["python","-u", "/Django_blog/Example/Example1/blog/Utils/startServer.py"]
