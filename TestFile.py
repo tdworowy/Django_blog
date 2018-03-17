@@ -1,2 +1,2 @@
-with open("testFile", 'w').write("TEST_PASS"):
-    pass
+with open("testFile", 'w') as f1:
+    f1.write("TEST PASS")
