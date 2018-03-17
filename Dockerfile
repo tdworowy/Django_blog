@@ -3,7 +3,7 @@
 # FROM directive instructing base image to build upon
 FROM python:3.6-jessie
 ENV PYTHONPATH $PWD/Django_blog
-#ENTRYPOINT ["python", "/Django_blog/Example/Example1/blog/Utils/startServer.py"]
+ENTRYPOINT ["python", "/Django_blog/TestFile.py]"]
 EXPOSE 8083
 RUN pip install --upgrade pip
 RUN pip install setuptools
