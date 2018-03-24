@@ -11,12 +11,12 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+
 # import django
 # django.setup()
-SITE_ID =1
+SITE_ID = 1
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -27,8 +27,7 @@ SECRET_KEY = 'v@a=_&jj@bz@j!e9fh+s87(3^t!^v7qwu@tx4z3c%t*ae(s$ef'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -40,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    #'blog',
-   'Example.Example1.blog',
+    # 'blog',
+    'Example.Example1.blog',
     # 'Example.Example1.blog.models.Post ',
     'taggit',
     'django.contrib.sitemaps',
@@ -50,12 +49,11 @@ INSTALLED_APPS = [
 ]
 
 HAYSTACK_CONNECTIONS = {
-    'default':{
-        'ENGINE' :'haystack.backends.solr_backend.SolrEngine',
-        'URL' :'http://127.0.0.1:8983/solr/Blog'
+    'default': {
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        'URL': 'http://127.0.0.1:8983/solr/Blog'
     }
 }
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -88,7 +86,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blog_setings.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
@@ -99,7 +96,6 @@ DATABASES = {
 
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -119,7 +115,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
@@ -133,20 +128,16 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
 
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER='testaccouny123321@gmail.com'
-EMAIL_HOST_PASSWORD ='testowehaslo'
-EMAIL_PORT=587
+EMAIL_HOST_USER = 'testaccouny123321@gmail.com'
+EMAIL_HOST_PASSWORD = 'testowehaslo'
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 # EMAIL_USE_SSL=True
 # EMAIL_PORT=465
-
-
