@@ -29,7 +29,7 @@ pipeline {
                 //sh 'docker run -d --name blog -p 127.0.0.1:8083:8083 blog:latest python Django_blog/Example/Example1/blog/Utils/startServer.py 8083'
                //sh 'docker run -d --name blog -p 127.0.0.1:8083:8083 blog:latest'
                //sh 'docker run -d --name blog -p 127.0.0.1:8083:8083 blog:latest /Django_blog/TestFile.py'
-                sh 'docker run -d --name blog -p 127.0.0.1:8083:8083 blog:latest'
+                sh 'docker run -d --name blog -p 8083:8083 blog:latest'
                }
             }
         }
