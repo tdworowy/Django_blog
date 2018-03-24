@@ -37,6 +37,13 @@ pipeline {
             build 'blogTests'
         }
     }
+    stage('Blog logs'){
+        steps{
+            script{
+                sh 'docker logs blog'
+            }
+        }
+    }
     }
      post {
         always {
