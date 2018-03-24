@@ -13,6 +13,7 @@ RUN pip install Django
 RUN pip install Django-taggit
 RUN pip install haystack
 RUN pip install requests
+RUN pip install markdown
 RUN git clone http://github.com/tdworowy/Django_blog.git
 # CMD powinno się samo uruchomić, nie wiem czy da się wiecej
 #CMD ["python", "-u","/Django_blog/TestFile.py"]
