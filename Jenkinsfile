@@ -46,7 +46,7 @@ pipeline {
     stage('Blog logs'){
         steps{
             script{
-                sh 'docker logs blog | tee logs.txt'
+                sh 'docker logs blog |& tee logs.txt'
             }
 
         }
@@ -57,8 +57,8 @@ pipeline {
              script{
                 sh 'sudo chmod 777 clear_docker.sh'
                 sh './clear_docker.sh'
-                archive '*/pylint_report.json'
-                archive '*/logs.txt'
+                archive 'pylint_report.json'
+                archive 'logs.txt'
 
             }
     }
