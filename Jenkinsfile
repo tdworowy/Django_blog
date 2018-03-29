@@ -1,7 +1,5 @@
 pipeline {
-     //environment {
 
-     //}
     agent { label 'Slave_ubuntu'}
 
     stages {
@@ -13,6 +11,14 @@ pipeline {
         stage("Pull changes from git"){
            steps{
                 git 'http://github.com/tdworowy/Django_blog.git'
+            }
+        }
+        stage("Static code analize"){
+           steps{
+                script{
+                    sh 'sudo pylint --output-format=json Example > pylint_report.json || true'
+                }
+
             }
 
         }
@@ -40,8 +46,9 @@ pipeline {
     stage('Blog logs'){
         steps{
             script{
-                sh 'docker logs blog'
+                sh 'docker logs blog | tee logs.txt'
             }
+
         }
     }
     }
@@ -50,6 +57,8 @@ pipeline {
              script{
                 sh 'sudo chmod 777 clear_docker.sh'
                 sh './clear_docker.sh'
+                archive '*/pylint_report.json'
+                archive '*/logs.txt'
 
             }
     }
@@ -57,4 +66,3 @@ pipeline {
 
 
 }
-
