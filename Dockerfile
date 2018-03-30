@@ -1,9 +1,6 @@
 # Dockerfile
 FROM python:3.6-jessie
 ENV PYTHONPATH $PWD/Django_blog
-#ENTRYPOINT ["python", "/Django_blog/TestFile.py]"]
-# może być tylko 1,  to albo CMD
-#EXPOSE 8083
 RUN pip install --upgrade pip
 RUN pip install setuptools
 RUN pip install Django
