@@ -7,8 +7,7 @@ from taggit.models import Tag
 
 from Example.Example1.blog.forms import EmailPostForm, CommentForm
 from Example.Example1.blog.models import Post, Comment
-# from Example.blog_setings.blog.models import Post
-# from Example.blog_setings.blog.forms import EmailPostForm, CommentForm
+
 
 def post_list(request, tag_slug=None):
     object_list = Post.published.all()
