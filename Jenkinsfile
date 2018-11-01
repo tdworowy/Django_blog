@@ -46,7 +46,7 @@ pipeline {
     stage('Blog logs'){
         steps{
             script{
-                sh 'docker logs blog |& tee logs.txt'
+                sh 'docker logs blog 2>&1 | tee logs.txt'
             }
 
         }
