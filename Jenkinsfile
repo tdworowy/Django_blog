@@ -57,8 +57,8 @@ pipeline {
              script{
                 sh 'sudo chmod 777 clear_docker.sh'
                 sh './clear_docker.sh'
-                archive 'pylint_report.json'
-                archive 'logs.txt'
+                archiveArtifacts 'pylint_report.json'
+                archiveArtifacts 'logs.txt'
 
             }
     }
