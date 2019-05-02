@@ -1,7 +1,7 @@
 import os
 
 import sys
-from Example.Utils.runFromShell import run
+from Example.Utils.run_from_shell import run
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
