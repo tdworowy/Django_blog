@@ -1,25 +1,23 @@
 pipeline {
+  agent { label 'Slave_ubuntu'}
 
-    agent { label 'Slave_ubuntu'}
-
-    stages {
-        stage("Clean workspcae"){
+  stages {
+        stage("Clean workspace") {
             steps{
                 cleanWs()
             }
         }
-        stage("Pull changes from git"){
+        stage("Pull changes from git") {
            steps{
                 git 'http://github.com/tdworowy/Django_blog.git'
             }
         }
-        stage("Static code analize"){
+        stage("Static code analysis") {
            steps{
                 script{
                     sh 'sudo pylint --output-format=json Example > pylint_report.json || true'
                 }
-
-            }
+          }
 
         }
         stage('Build image') {
@@ -43,7 +41,7 @@ pipeline {
             build 'blogTests'
         }
     }
-    stage('Blog logs'){
+    stage('Blog logs') {
         steps{
             script{
                 sh 'docker logs blog 2>&1 | tee logs.txt'
@@ -51,18 +49,16 @@ pipeline {
 
         }
     }
-    }
-     post {
+}
+    post {
         always {
-             script{
+             script {  
                 sh 'sudo chmod 777 clear_docker.sh'
                 sh './clear_docker.sh'
                 archiveArtifacts 'pylint_report.json'
                 archiveArtifacts 'logs.txt'
 
             }
+        }
     }
-    }
-
-
 }
