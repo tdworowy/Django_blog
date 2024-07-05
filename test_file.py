@@ -2,7 +2,7 @@ import requests
 import sys
 
 if len(sys.argv) < 2:
-    ip = 'localhost'
+    ip = "localhost"
 else:
     ip = sys.argv[1]
 

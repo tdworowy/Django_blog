@@ -11,49 +11,72 @@ import taggit.managers
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('taggit', '0003_taggeditem_add_unique_index'),
-        ('blog', '0001_initial'),
+        ("taggit", "0003_taggeditem_add_unique_index"),
+        ("blog", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Comment',
+            name="Comment",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255)),
-                ('email', models.EmailField(max_length=254)),
-                ('body', models.TextField()),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('updated', models.DateTimeField(auto_now=True)),
-                ('active', models.BooleanField(default=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=255)),
+                ("email", models.EmailField(max_length=254)),
+                ("body", models.TextField()),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("updated", models.DateTimeField(auto_now=True)),
+                ("active", models.BooleanField(default=True)),
             ],
             options={
-                'ordering': ('created',),
+                "ordering": ("created",),
             },
         ),
         migrations.AddField(
-            model_name='post',
-            name='tags',
-            field=taggit.managers.TaggableManager(help_text='A comma-separated list of tags.', through='taggit.TaggedItem', to='taggit.Tag', verbose_name='Tags'),
+            model_name="post",
+            name="tags",
+            field=taggit.managers.TaggableManager(
+                help_text="A comma-separated list of tags.",
+                through="taggit.TaggedItem",
+                to="taggit.Tag",
+                verbose_name="Tags",
+            ),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='author',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='blog_posts', to=settings.AUTH_USER_MODEL),
+            model_name="post",
+            name="author",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name="blog_posts",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='publish',
-            field=models.DateTimeField(default=datetime.datetime(2019, 5, 2, 8, 49, 42, 318556, tzinfo=utc)),
+            model_name="post",
+            name="publish",
+            field=models.DateTimeField(
+                default=datetime.datetime(2019, 5, 2, 8, 49, 42, 318556, tzinfo=utc)
+            ),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='slug',
-            field=models.SlugField(max_length=250, unique_for_date='publish'),
+            model_name="post",
+            name="slug",
+            field=models.SlugField(max_length=250, unique_for_date="publish"),
         ),
         migrations.AddField(
-            model_name='comment',
-            name='post',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='comments', to='blog.Post'),
+            model_name="comment",
+            name="post",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name="comments",
+                to="blog.Post",
+            ),
         ),
     ]

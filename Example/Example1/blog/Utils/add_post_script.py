@@ -7,12 +7,10 @@ from Example.Utils.random_string import generate_random_string
 
 
 def add_post(*args):
-    user = User.objects.get(username='admin')
-    post = Post(title=args[0],
-                slug=args[1],
-                body=args[2:],
-                status='published',
-                author=user)
+    user = User.objects.get(username="admin")
+    post = Post(
+        title=args[0], slug=args[1], body=args[2:], status="published", author=user
+    )
     post.save()
 
 
@@ -21,7 +19,7 @@ def generate_posts():
     for i in range(10):
         title = generate_random_string(10)
         slug = generate_random_string(10)
-        with open(path_ + '\\lore.txt', 'r') as f:
+        with open(path_ + "\\lore.txt", "r") as f:
             content = f.read()
         add_post(title, slug, content)
 

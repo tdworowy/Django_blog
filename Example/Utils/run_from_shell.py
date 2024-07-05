@@ -1,8 +1,10 @@
 import os
 
 path_ = os.path.dirname(os.path.abspath(__file__))
+
+
 def run_from_shell_script(path, script):
-    path_script = path_ + '\\' + script
+    path_script = path_ + "\\" + script
     print(path)
     print(path_script)
     commend = "cd %s && python manage.py shell %s" % (path, path_script)
